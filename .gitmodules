@@ -1,0 +1,6 @@
+[submodule "video-proccessing-service"]
+	path = video-proccessing-service
+	url = git@github.com:bad-Al-code/video-proccessing-service.git
+[submodule "video-upload-service"]
+	path = video-upload-service
+	url = git@github.com:bad-Al-code/video-upload-service.git
