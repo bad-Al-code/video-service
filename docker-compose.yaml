@@ -36,6 +36,11 @@ services:
       rabbitmq:
         condition: service_healthy
     command: npm run start
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
 
   processing-service:
     container_name: video-processing-service
@@ -71,6 +76,14 @@ services:
       rabbitmq:
         condition: service_healthy
     command: npm run start
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 1024M
+        reservations:
+          cpus: "0.5"
+          memory: 512M
 
   mysql:
     image: mysql:8.0-bookworm
@@ -100,6 +113,11 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 2G
 
   rabbitmq:
     image: rabbitmq:4.1.0-beta.5-management-alpine
@@ -118,6 +136,11 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: "0.75"
+          memory: 1G
 
 volumes:
   mysql_data:
